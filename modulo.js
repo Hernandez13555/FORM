@@ -69,13 +69,13 @@ export const esValido = (e) => {
                   );
                 }
                 break;
+
               default:
                 break;
             }
           }
         }
         break;
-
       case "SELECT":
         obj[campo.name] = campo.selectedIndex;
         if (campo.selectedIndex === 0) {

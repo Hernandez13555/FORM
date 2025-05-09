@@ -15,58 +15,6 @@ const ciudadSelect = document.getElementById("ciudad");
 const generoDiv = document.querySelector(".form_control .form_radio");
 const lenguajesDiv = document.getElementById("lenguajes");
 
-// // Cargar datos dinámicos
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetch("/api/ciudades")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       data.forEach((ciudad) => {
-//         const option = document.createElement("option");
-//         option.value = ciudad.id;
-//         option.textContent = ciudad.nombre;
-//         ciudadSelect.appendChild(option);
-//       });
-//     });
-
-//   fetch("/api/generos")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       generoDiv.innerHTML = "";
-//       data.forEach((genero) => {
-//         const div = document.createElement("div");
-//         div.classList.add("form_radio");
-//         const radio = document.createElement("input");
-//         radio.type = "radio";
-//         radio.name = "genero";
-//         radio.value = genero.id;
-//         radio.required = true;
-//         div.appendChild(radio);
-//         const label = document.createElement("label");
-//         label.textContent = genero.nombre;
-//         div.appendChild(label);
-//         generoDiv.appendChild(div);
-//       });
-//     });
-
-//   fetch("/api/lenguajes")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       data.forEach((lenguaje) => {
-//         const div = document.createElement("div");
-//         div.classList.add("form_lenguajesCheck");
-//         const checkbox = document.createElement("input");
-//         checkbox.type = "checkbox";
-//         checkbox.name = "lenguaje[]";
-//         checkbox.value = lenguaje.id;
-//         div.appendChild(checkbox);
-//         const label = document.createElement("label");
-//         label.textContent = lenguaje.nombre;
-//         div.appendChild(label);
-//         lenguajesDiv.appendChild(div);
-//       });
-//     });
-// });
-
 // Funciones de validación
 const validar = (event) => {
   const valores = [nombre, apellido, telefono, documento, usuario, contrasena];
