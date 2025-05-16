@@ -12,6 +12,7 @@
   --drover: #eceff4;
   --sycamore: #3d3b32;
   --white: #ffffff;
+  --red: #e40000;
   --max-width: 1400px;
   --padding: 10px;
   --margin: 10px;
@@ -29,6 +30,11 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+body::-webkit-scrollbar { /* Para navegadores basados en WebKit como Chrome, Safari */
+  display: none; /*Hace invisible la barra espaciadora*/
+}
+
+
 header {
   text-align: center;
   background: var(--heavyMetal);
@@ -36,6 +42,36 @@ header {
   border-bottom: solid 1px var(--sycamore);
   margin-bottom: var(--margin);
 }
+
+.header-nav {
+  margin-top: 2rem;
+}
+
+.header-nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 1rem;
+}
+
+
+
+.header-nav a {
+  text-decoration: none;
+  color: var(--starship);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border-radius: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-nav a:hover {
+  background-color: var(--starship);
+  color: var(--heavyMetal);
+}
+
 
 section {
   padding: var(--padding);
@@ -174,16 +210,13 @@ button:hover {
   background: var(--heavyMetal);
   color: var(--starship);
 }
-/* .avisoError{
-  color: red;
-  font-size: 14px;
-  border: 2px solid red;
-} */
+
 .error {
   border-width: 3px;
   border-style: solid;
-  border-color: red;
+  border-color: var(--red);
 }
+
 select {
   display: block;
   width: 90%;
@@ -196,37 +229,74 @@ select {
   color: var(--sycamore);
   background-color: white;
 }
+
 input[type="radio"] {
   margin: 0px 15px;
 }
+
 input[type="checkbox"] {
   margin: 0px;
   width: 20px;
 }
+
 .form_radio {
   display: flex;
 }
+
 .form_control {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+
 .form_politico {
   justify-content: start;
-  margin-left: 20px;
 }
-.form_lenguajeProgram {
-  margin: 30px;
-}
+
 .form_lenguajesCheck {
   display: flex;
   gap: 10px;
-  margin: 5px 0px;
+  margin: 2px 0px;
 }
+
 .form_lenguaje {
   margin-left: 30px;
 }
 
-.oculto {
-  display: none;
+.form_espacio{
+  margin: 10px;
+}
+
+table{
+  background: var(--heavyMetal);
+  color: var(--starship);
+  border-collapse: collapse;
+  border: solid 2px var(--starship);
+}
+
+thead{
+  background: var(--starship);
+  color: var(--heavyMetal);
+}
+
+td{
+  padding: var(--padding);
+  border: solid 2px var(--starship);
+}
+
+.editar{
+  color: var(--starship);
+  border: solid 1px var(--starship);
+  margin: 5px;
+}
+
+.eliminar{
+  color: var(--red);
+  border: solid 1px var(--red);
+  margin: 5px;
+}
+
+.eliminar:hover {
+  background: var(--red);
+  color: var(--heavyMetal);
 }

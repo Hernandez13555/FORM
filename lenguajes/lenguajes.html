@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Eventos</h1>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="/index.html">Login</a></li>
+        <li><a href="/ciudades/cuidades.html">Cuidades</a></li>
+        <li><a href="/generos/generos.html">Generos</a></li>
+        <li><a href="/lenguajes/lenguajes.html">Lenguajes</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2 class="center">Seleccione los lunguajes que usa </h2>
+          <form action="#" novalidate>
+            
+            <div>
+              <label>Lenguajes de Programacion(minimo 5):</label>
+              <div class="form_lenguaje">
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="html" value="1" required>
+                  <label for="lenguajes">HTML</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="css" value="2" required>
+                  <label for="lenguajes">CSS</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="JavaScript" value="3" required>
+                  <label for="lenguajes">JavaScript</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="php" value="4" required>
+                  <label for="lenguajes">PHP</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="java" value="5" required>
+                  <label for="lenguajes">Java</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="c#" value="6" required>
+                  <label for="lenguajes">C#</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="sql" value="7" required>
+                  <label for="lenguajes">SQL</label>
+                </div>
+                <div class="form_lenguajesCheck">
+                  <input type="checkbox" name="lenguaje[]" id="phyton" value="8" required>
+                  <label for="lenguajes">Phyton</label>
+                </div>
+              </div>
+            </div>
+            
+            <button type="submit" id="btn_validar">Validar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>
