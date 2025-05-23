@@ -111,57 +111,127 @@ const tabla = (posts, usuarios) => {
   const root = document.querySelector("#app");
   const tabla = document.createElement("table");
   const header = document.createElement("thead");
+
+  // Crear encabezados
+  const thId = document.createElement("th");
+  const thNombre = document.createElement("th");
+  const thApellido = document.createElement("th");
+  const thDocumento = document.createElement("th");
+  const thTelefono = document.createElement("th");
   const thUsuario = document.createElement("th");
+  const thContrasena = document.createElement("th");
   const thCiudad = document.createElement("th");
   const thLenguaje = document.createElement("th");
   const thGenero = document.createElement("th");
   const thAcciones = document.createElement("th");
-  const tbody = document.createElement("tbody");
 
+  const tbody = document.createElement("tbody");
   const fragmento = document.createDocumentFragment();
 
-  usuarios.forEach(({ id, name, ciudad, lenguaje, genero }) => {
-    const tr = document.createElement("tr");
-    const tdUsuario = document.createElement("td");
-    const tdCiudad = document.createElement("td");
-    const tdLenguaje = document.createElement("td");
-    const tdGenero = document.createElement("td");
-    const tdAcciones = document.createElement("td");
-    const btnEditar = document.createElement("button");
-    const btnEliminar = document.createElement("button");
+  usuarios.forEach(
+    ({
+      id,
+      nombre,
+      apellido,
+      documento,
+      telefono,
+      name,
+      contrasena,
+      ciudad,
+      lenguaje,
+      genero,
+    }) => {
+      const tr = document.createElement("tr");
 
-    btnEditar.setAttribute("data-id", id);
-    btnEliminar.setAttribute("data-id", id);
-    tr.setAttribute("id", `post_${id}`);
+      // Crear celdas
+      const tdId = document.createElement("td");
+      const tdNombre = document.createElement("td");
+      const tdApellido = document.createElement("td");
+      const tdDocumento = document.createElement("td");
+      const tdTelefono = document.createElement("td");
+      const tdUsuario = document.createElement("td");
+      const tdContrasena = document.createElement("td");
+      const tdCiudad = document.createElement("td");
+      const tdLenguaje = document.createElement("td");
+      const tdGenero = document.createElement("td");
+      const tdAcciones = document.createElement("td");
 
-    tdUsuario.textContent = name;
-    tdCiudad.textContent = ciudad;
-    tdLenguaje.textContent = lenguaje;
-    tdGenero.textContent = genero;
+      // Botones
+      const btnEditar = document.createElement("button");
+      const btnEliminar = document.createElement("button");
 
-    btnEditar.textContent = "Editar";
-    btnEliminar.textContent = "Eliminar";
-    btnEditar.classList.add("editar");
-    btnEliminar.classList.add("eliminar");
+      // Asignar valores
+      tr.setAttribute("id", `post_${id}`);
+      btnEditar.setAttribute("data-id", id);
+      btnEliminar.setAttribute("data-id", id);
+      btnEditar.textContent = "Editar";
+      btnEliminar.textContent = "Eliminar";
+      btnEditar.classList.add("editar");
+      btnEliminar.classList.add("eliminar");
 
-    tdAcciones.append(btnEditar, btnEliminar);
+      tdId.textContent = id;
+      tdNombre.textContent = nombre;
+      tdApellido.textContent = apellido;
+      tdDocumento.textContent = documento;
+      tdTelefono.textContent = telefono;
+      tdUsuario.textContent = name;
+      tdContrasena.textContent = contrasena;
+      tdCiudad.textContent = ciudad;
+      tdLenguaje.textContent = lenguaje;
+      tdGenero.textContent = genero;
+      tdAcciones.append(btnEditar, btnEliminar);
 
-    tr.append(tdUsuario, tdCiudad, tdLenguaje, tdGenero, tdAcciones);
-    fragmento.append(tr);
-  });
+      // Agregar celdas a la fila en el orden deseado
+      tr.append(
+        tdId,
+        tdNombre,
+        tdApellido,
+        tdDocumento,
+        tdTelefono,
+        tdUsuario,
+        tdContrasena,
+        tdCiudad,
+        tdLenguaje,
+        tdGenero,
+        tdAcciones
+      );
+      fragmento.append(tr);
+    }
+  );
 
   tbody.append(fragmento);
 
+  // Encabezados en el orden deseado
+  thId.textContent = "ID";
+  thNombre.textContent = "Nombre";
+  thApellido.textContent = "Apellido";
+  thDocumento.textContent = "Documento";
+  thTelefono.textContent = "Teléfono";
   thUsuario.textContent = "Usuario";
+  thContrasena.textContent = "Contraseña";
   thCiudad.textContent = "Ciudad";
   thLenguaje.textContent = "Lenguajes";
   thGenero.textContent = "Género";
   thAcciones.textContent = "Acciones";
 
-  header.append(thUsuario, thCiudad, thLenguaje, thGenero, thAcciones);
+  // Agregar encabezados a la tabla
+  header.append(
+    thId,
+    thNombre,
+    thApellido,
+    thDocumento,
+    thTelefono,
+    thUsuario,
+    thContrasena,
+    thCiudad,
+    thLenguaje,
+    thGenero,
+    thAcciones
+  );
   tabla.append(header, tbody);
   root.append(tabla);
 };
+
 
 const data = Promise.all([posts(), usuarios()]).then(([posts, usuarios]) => {
   tabla(posts, usuarios);
