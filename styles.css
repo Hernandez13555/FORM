@@ -34,45 +34,6 @@ body::-webkit-scrollbar { /* Para navegadores basados en WebKit como Chrome, Saf
   display: none; /*Hace invisible la barra espaciadora*/
 }
 
-
-header {
-  text-align: center;
-  background: var(--heavyMetal);
-  color: var(--starship);
-  border-bottom: solid 1px var(--sycamore);
-  margin-bottom: var(--margin);
-}
-
-.header-nav {
-  margin-top: 2rem;
-}
-
-.header-nav ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  gap: 1rem;
-}
-
-
-
-.header-nav a {
-  text-decoration: none;
-  color: var(--starship);
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  border-radius: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.header-nav a:hover {
-  background-color: var(--starship);
-  color: var(--heavyMetal);
-}
-
-
 section {
   padding: var(--padding);
 }
@@ -267,16 +228,28 @@ input[type="checkbox"] {
   margin: 10px;
 }
 
-table{
+
+#app {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: var(--margin) auto;
+  background: var(--heavyMetal);
+  padding: var(--padding);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
   background: var(--heavyMetal);
   color: var(--starship);
   border-collapse: collapse;
   border: solid 2px var(--starship);
 }
 
-thead{
-  background: var(--starship);
-  color: var(--heavyMetal);
+thead {
+  background-color: var(--starship);
+  color: var(--white);
 }
 
 td{

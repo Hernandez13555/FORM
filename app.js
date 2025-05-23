@@ -94,24 +94,9 @@ const isValid = (e) => {
   let data = esValido(e);
   console.log(data);
 };
-//Eventos
-addEventListener("DOMContentLoaded", acepta);
-politicas.addEventListener("change", acepta);
-formulario.addEventListener("submit", isValid);
-// formulario.addEventListener("submit", validar);
-// nombre.addEventListener("keydown", letras);
-// apellido.addEventListener("keydown", letras);
-// telefono.addEventListener("keydown", numeros);
-// documento.addEventListener("keydown", numeros);
-// nombre.addEventListener("blur", limpiar);
-// apellido.addEventListener("blur", limpiar);
-// telefono.addEventListener("blur", limpiar);
-// documento.addEventListener("blur", limpiar);
-// usuario.addEventListener("blur", limpiar);
-// contrasena.addEventListener("blur", limpiar);
 
 
-
+//Tabla
 const posts = async () => {
   const request = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await request.json();
@@ -129,65 +114,87 @@ const tabla = (posts, usuarios) => {
   const tabla = document.createElement("table");
   const header = document.createElement("thead");
   const thUsuario = document.createElement("th");
-  const thTitulo = document.createElement("th");
-  const thcuerpo = document.createElement("th");
-  const thacciones = document.createElement("th");
+  const thCiudad = document.createElement("th");
+  const thLenguaje = document.createElement("th");
+  const thGenero = document.createElement("th");
+  const thAcciones = document.createElement("th");
   const tbody = document.createElement("tbody");
 
   const fragmento = document.createDocumentFragment();
-  posts.forEach(({ id, userId, title, body }) => {
-    const { name } = usuarios.find((elemento) => elemento.id == userId);
 
+  usuarios.forEach(({ id, name, ciudad, lenguaje, genero }) => {
     const tr = document.createElement("tr");
     const tdUsuario = document.createElement("td");
-    const tdTitulo = document.createElement("td");
-    const tdBody = document.createElement("td");
+    const tdCiudad = document.createElement("td");
+    const tdLenguaje = document.createElement("td");
+    const tdGenero = document.createElement("td");
     const tdAcciones = document.createElement("td");
     const btnEditar = document.createElement("button");
     const btnEliminar = document.createElement("button");
+
     btnEditar.setAttribute("data-id", id);
     btnEliminar.setAttribute("data-id", id);
     tr.setAttribute("id", `post_${id}`);
+
     tdUsuario.textContent = name;
-    tdTitulo.textContent = title;
-    tdBody.textContent = body;
+    tdCiudad.textContent = ciudad;
+    tdLenguaje.textContent = lenguaje;
+    tdGenero.textContent = genero;
+
     btnEditar.textContent = "Editar";
     btnEliminar.textContent = "Eliminar";
     btnEditar.classList.add("editar");
     btnEliminar.classList.add("eliminar");
+
     tdAcciones.append(btnEditar, btnEliminar);
-    tr.append(tdUsuario, tdTitulo, tdBody, tdAcciones);
+
+    tr.append(tdUsuario, tdCiudad, tdLenguaje, tdGenero, tdAcciones);
     fragmento.append(tr);
   });
+
   tbody.append(fragmento);
 
   thUsuario.textContent = "Usuario";
-  thTitulo.textContent = "Titulo";
-  thcuerpo.textContent = "Cuerpo";
-  thacciones.textContent = "Acciones";
+  thCiudad.textContent = "Ciudad";
+  thLenguaje.textContent = "Lenguajes";
+  thGenero.textContent = "Género";
+  thAcciones.textContent = "Acciones";
 
-  header.append(thUsuario, thTitulo, thcuerpo, thacciones);
+  header.append(thUsuario, thCiudad, thLenguaje, thGenero, thAcciones);
   tabla.append(header, tbody);
-
   root.append(tabla);
 };
 
-const data = Promise.all([posts(), usuarios()]).then((data) => {
-  const [posts, usuarios] = data;
+const data = Promise.all([posts(), usuarios()]).then(([posts, usuarios]) => {
   tabla(posts, usuarios);
 });
 
+// Manejo de botones
 window.addEventListener("click", (e) => {
   if (e.target.matches(".editar")) {
     let id = e.target.dataset.id;
-    alert(id);
+    alert(`Editar usuario con ID: ${id}`);
   }
   if (e.target.matches(".eliminar")) {
     let id = e.target.dataset.id;
     let tr = document.querySelector(`#post_${id}`);
     tr.remove();
-    console.log(tr);
-
-    alert(id);
+    console.log(`Usuario con ID ${id} eliminado`);
   }
 });
+
+//Eventos
+addEventListener("DOMContentLoaded", acepta);
+politicas.addEventListener("change", acepta);
+formulario.addEventListener("submit", isValid);
+formulario.addEventListener("submit", validar);
+nombre.addEventListener("keydown", letras);
+apellido.addEventListener("keydown", letras);
+telefono.addEventListener("keydown", numeros);
+documento.addEventListener("keydown", numeros);
+nombre.addEventListener("blur", limpiar);
+apellido.addEventListener("blur", limpiar);
+telefono.addEventListener("blur", limpiar);
+documento.addEventListener("blur", limpiar);
+usuario.addEventListener("blur", limpiar);
+contrasena.addEventListener("blur", limpiar);
