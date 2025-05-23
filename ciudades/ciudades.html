@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>Eventos</h1>
+      </div>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/ciudades/ciudades.html">Cuidades</a></li>
+          <li><a href="/lenguajes/lenguajes.html">Lenguajes</a></li>
+          <li><a href="/generos/generos.html">Generos</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="container">
+          <div class="card">
+            <h2 class="center">Ingrese su ciudad</h2>
+            <form action="#" novalidate>
+              <div class="form_control">
+                <select name="ciudad" required>
+                  <option class="oculto">Seleccione</option>
+                  <option value="1">Floridablanca</option>
+                  <option value="2">Piedecuesta</option>
+                  <option value="3">Bucaramanga</option>
+                  <option value="4">Giron</option>
+                </select>
+              </div>
+              <button type="submit" id="btn_validar">Validar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="app"></div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

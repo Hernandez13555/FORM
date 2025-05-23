@@ -10,7 +10,6 @@ const contrasena = document.querySelector("[name=contrasena]");
 const politicas = document.querySelector("[name=politicas]");
 const boton = document.querySelector("#btn_validar");
 
-
 //Funciones
 const validar = (event) => {
   const valores = [nombre, apellido, telefono, documento, usuario, contrasena];
@@ -94,7 +93,6 @@ const isValid = (e) => {
   let data = esValido(e);
   console.log(data);
 };
-
 
 //Tabla
 const posts = async () => {

@@ -30,8 +30,44 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-body::-webkit-scrollbar { /* Para navegadores basados en WebKit como Chrome, Safari */
+body::-webkit-scrollbar {
+  /* Para navegadores basados en WebKit como Chrome, Safari */
   display: none; /*Hace invisible la barra espaciadora*/
+}
+
+header {
+  text-align: center;
+  background: var(--heavyMetal);
+  color: var(--starship);
+  border-bottom: solid 1px var(--sycamore);
+  margin-bottom: var(--margin);
+}
+
+.header-nav {
+  margin-top: 2rem;
+}
+
+.header-nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 1rem;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: var(--starship);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border-radius: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-nav a:hover {
+  background-color: var(--starship);
+  color: var(--heavyMetal);
 }
 
 section {
@@ -224,10 +260,9 @@ input[type="checkbox"] {
   margin-left: 30px;
 }
 
-.form_espacio{
+.form_espacio {
   margin: 10px;
 }
-
 
 #app {
   width: 100%;
@@ -252,18 +287,18 @@ thead {
   color: var(--white);
 }
 
-td{
+td {
   padding: var(--padding);
   border: solid 2px var(--starship);
 }
 
-.editar{
+.editar {
   color: var(--starship);
   border: solid 1px var(--starship);
   margin: 5px;
 }
 
-.eliminar{
+.eliminar {
   color: var(--red);
   border: solid 1px var(--red);
   margin: 5px;
