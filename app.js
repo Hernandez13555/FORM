@@ -1,4 +1,4 @@
-import { esValido, generos } from "./modulo.js";
+import { esValido} from "./modulo.js";
 //Variables
 const formulario = document.querySelector("form");
 const nombre = document.querySelector("[name=nombre]");
@@ -95,12 +95,6 @@ const isValid = (e) => {
 };
 
 //Tabla
-const posts = async () => {
-  const request = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await request.json();
-  return posts;
-};
-
 const usuarios = async () => {
   const request = await fetch("https://jsonplaceholder.typicode.com/users");
   const usuarios = await request.json();
@@ -125,7 +119,7 @@ const generos = async () => {
   return generos;
 };
 
-const tabla = (posts, usuarios, ciudades, lenguajes, generos) => {
+const tabla = (usuarios, ciudades, lenguajes, generos) => {
   const root = document.querySelector("#app");
   const tabla = document.createElement("table");
   const header = document.createElement("thead");
@@ -251,13 +245,12 @@ const tabla = (posts, usuarios, ciudades, lenguajes, generos) => {
 };
 
 const data = Promise.all([
-  posts(),
   usuarios(),
   ciudades(),
   lenguajes(),
   generos(),
-]).then(([posts, usuarios, ciudades, lenguajes, generos]) => {
-  tabla(posts, usuarios, ciudades, lenguajes, generos);
+]).then(([usuarios, ciudades, lenguajes, generos]) => {
+  tabla(usuarios, ciudades, lenguajes, generos);
 });
 
 // Manejo de botones
