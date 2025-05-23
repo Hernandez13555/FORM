@@ -1,4 +1,4 @@
-import { esValido } from "./modulo.js";
+import { esValido, generos } from "./modulo.js";
 //Variables
 const formulario = document.querySelector("form");
 const nombre = document.querySelector("[name=nombre]");
@@ -107,7 +107,25 @@ const usuarios = async () => {
   return usuarios;
 };
 
-const tabla = (posts, usuarios) => {
+const ciudades = async () => {
+  const request = await fetch("https://jsonplaceholder.typicode.com/users");
+  const ciudades = await request.json();
+  return ciudades;
+};
+
+const lenguajes = async () => {
+  const request = await fetch("https://jsonplaceholder.typicode.com/users");
+  const lenguajes = await request.json();
+  return lenguajes;
+};
+
+const generos = async () => {
+  const request = await fetch("https://jsonplaceholder.typicode.com/users");
+  const generos = await request.json();
+  return generos;
+};
+
+const tabla = (posts, usuarios, ciudades, lenguajes, generos) => {
   const root = document.querySelector("#app");
   const tabla = document.createElement("table");
   const header = document.createElement("thead");
@@ -232,9 +250,14 @@ const tabla = (posts, usuarios) => {
   root.append(tabla);
 };
 
-
-const data = Promise.all([posts(), usuarios()]).then(([posts, usuarios]) => {
-  tabla(posts, usuarios);
+const data = Promise.all([
+  posts(),
+  usuarios(),
+  ciudades(),
+  lenguajes(),
+  generos(),
+]).then(([posts, usuarios, ciudades, lenguajes, generos]) => {
+  tabla(posts, usuarios, ciudades, lenguajes, generos);
 });
 
 // Manejo de botones
@@ -255,14 +278,14 @@ window.addEventListener("click", (e) => {
 addEventListener("DOMContentLoaded", acepta);
 politicas.addEventListener("change", acepta);
 formulario.addEventListener("submit", isValid);
-formulario.addEventListener("submit", validar);
-nombre.addEventListener("keydown", letras);
-apellido.addEventListener("keydown", letras);
-telefono.addEventListener("keydown", numeros);
-documento.addEventListener("keydown", numeros);
-nombre.addEventListener("blur", limpiar);
-apellido.addEventListener("blur", limpiar);
-telefono.addEventListener("blur", limpiar);
-documento.addEventListener("blur", limpiar);
-usuario.addEventListener("blur", limpiar);
-contrasena.addEventListener("blur", limpiar);
+// formulario.addEventListener("submit", validar);
+// nombre.addEventListener("keydown", letras);
+// apellido.addEventListener("keydown", letras);
+// telefono.addEventListener("keydown", numeros);
+// documento.addEventListener("keydown", numeros);
+// nombre.addEventListener("blur", limpiar);
+// apellido.addEventListener("blur", limpiar);
+// telefono.addEventListener("blur", limpiar);
+// documento.addEventListener("blur", limpiar);
+// usuario.addEventListener("blur", limpiar);
+// contrasena.addEventListener("blur", limpiar);

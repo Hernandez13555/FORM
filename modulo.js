@@ -50,3 +50,8 @@ export const esValido = (e) => {
   });
   return obj;
 };
+export const generos = async () => {
+  const request = await fetch("https://jsonplaceholder.typicode.com/users");
+  const generos = await request.json();
+  return generos;
+};
